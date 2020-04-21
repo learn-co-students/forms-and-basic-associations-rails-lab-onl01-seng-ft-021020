@@ -159,4 +159,8 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
+# biagio = Artist.create!(name: "Biagio")
+# c_note = Note.create!(content: "C Sharp")
+# hotline = Song.create!(title: "Hotline Bling", artist_id: biagio.id, genre_id.)
+
 
