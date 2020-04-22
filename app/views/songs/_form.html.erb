@@ -1,0 +1,13 @@
+<%= form_for @song  do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <%= f.label :genre %>
+  <%= f.collection_select :genre_id , Genre.all, :id, :name %><br>
+  <%= f.fields_for :notes do |note_fields| %>
+    <%= note_fields.label :content %>
+    <%= note_fields.text_area :content %>
+  <%end%>
+  <%= f.submit %>
+<% end %>
