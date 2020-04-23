@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    set_artist
   end
 
   def new
@@ -22,12 +22,11 @@ class ArtistsController < ApplicationController
   end
 
   def edit
-    @artist = Artist.find(params[:id])
+    set_artist
   end
 
   def update
-    @artist = Artist.find(params[:id])
-
+    set_artist
     @artist.update(artist_params)
 
     if @artist.save
@@ -48,5 +47,9 @@ class ArtistsController < ApplicationController
 
   def artist_params
     params.require(:artist).permit(:name)
+  end
+
+  def set_artist
+    @artist = Artist.find_by_id(params[:id])
   end
 end
